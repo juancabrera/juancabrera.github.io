@@ -10,40 +10,6 @@
         
             <item>
                 <title>Javascript 360</title>
-                <link>http://localhost:4000/javascript/360/motion/2015/06/11/javascript-360/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>Almost a year ago I wrote a small Javascript method that takes a bunch of images (frames) and make with them a spinnable 360 with inertia that works for both desktop and mobile. I also tweaked it a little bit so it could work with a Leap Motion.</p>
-
-<p>I want to retake this little project in order to make some improvements, mostly in performance, tweaking the inertia and probably adding native support for the Leap Motion. If you want to help, you are more than welcome :)</p>
-
-<p>Demo: <a href="http://juancabrera.github.io/three60/">http://juancabrera.github.io/three60/
-</a><br />
-Demo with LeapMotion: <a href="http://instagram.com/p/fTSUreky5f/">http://instagram.com/p/fTSUreky5f/</a><br />
-GitHub Repo: <a href="https://github.com/juancabrera/three60">https://github.com/juancabrera/three60</a></p>
-
-<p><strong>[Updated]</strong> Nov 13, 2014.</p>
-<ul>
-  <li>Fixed bugs with interaction</li>
-  <li>Added RequestAnimationFrame</li>
-  <li>Improved inertia</li>
-  <li>Removed jQuery dependency</li>
-</ul>
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/javascript/360/motion/2015/06/11/javascript-360/</guid>
-                <description>
-                    
-                </description>
-                <pubDate>Thu, 11 Jun 2015 00:00:00 -0400</pubDate>
-                <author>Juan Cabrera</author>
-            </item>
-        
-    
-        
-            <item>
-                <title>Javascript 360</title>
                 <link>http://localhost:4000/javascript/360/motion/2015/06/01/javascript-360/</link>
                 <content:encoded>
                     <![CDATA[
