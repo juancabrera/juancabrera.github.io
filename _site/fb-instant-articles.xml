@@ -9,8 +9,79 @@
     
         
             <item>
+                <title>React Asset Loader</title>
+                <link>http://localhost:4000/javascript/react/2015/05/17/react-asset-loader/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p><a href="https://github.com/juancabrera/react-asset-loader" target="_blank">This</a> is simple react component for loading assets. It allows you to load from a single asset to multiple assets without affecting the pageload speed. You can also add custom classes, attributes and callback functions.</p>
+
+<h2 id="concept">Concept</h2>
+<p>We all get scared of heavy websites, there are tons and tons of articles telling us why we shouldnt build websites using heavy assets like videos or gifs. But sometimes, you just need to, sometimes you just need to build a cool interactive experience with videos, or so something cool with gifs, or a long page with lots of high quality images, etc. This component is precisely for that.</p>
+
+<h2 id="how-it-works">How it works</h2>
+<p>This component allows you to load all the assets you want without affecting the pageload speed, this is because it will load the page and then it will start loading all the assets, it adds a <code class="highlighter-rouge">&lt;div className=loading&gt;&lt;/div&gt;</code> wrapper while its loading the asset so you can have a nice custom loader, when the assets are loaded it will replace the loading wrapper with the actual assets.</p>
+
+<h2 id="install">Install</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install react-asset-loader --save-dev</code></pre></figure>
+
+<p>Or just grab the component <code class="highlighter-rouge">LoadAsset.js</code> directly from the repo.</p>
+
+<h2 id="usage">Usage</h2>
+<p><strong>Load a single asset.</strong></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/asset.jpg"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<p><strong>Load multiple assets.</strong><br />
+When you need to load more than one asset for one experience. It will be loadad after all the assets passed are loaded.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video1.mp4"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video2.mp4"</span><span class="p">}]}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+<span class="c1">// or also </span>
+
+<span class="kd">var</span> <span class="nx">videos</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video1.mp4"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video2.mp4"</span><span class="p">}</span> <span class="p">]</span></code></pre></figure>
+
+<p><strong>Adding classes.</strong><br />
+You can add classes to each asset you pass to the component.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/asset.jpg"</span><span class="p">,</span> <span class="s2">"className"</span><span class="p">:</span><span class="s2">"class1 class2"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<p><strong>Adding attributes.</strong><br />
+You can also add attributes to each asset you pass to the component.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">,</span> <span class="s2">"attributes"</span><span class="p">:[{</span><span class="s2">"autoPlay"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"loop"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}]}]}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+<span class="c1">// or also </span>
+
+<span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="p">[{</span> <span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">,</span> <span class="s2">"attributes"</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="s2">"autoPlay"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"loop"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}</span> <span class="p">]</span> <span class="p">}]</span></code></pre></figure>
+
+<p><strong>Custom onLoad callback.</strong><br />
+You can have a custom callback for when your assets are loaded.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">onLoad</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onCoolVideoLoaded</span><span class="p">}</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<h2 id="links">Links</h2>
+<p><strong>Github</strong><br />
+<a href="https://github.com/juancabrera/react-asset-loader" target="_blank">https://github.com/juancabrera/react-asset-loader</a></p>
+
+<p><strong>NPM package</strong><br />
+<a href="https://www.npmjs.com/package/react-asset-loader" target="_blank">https://www.npmjs.com/package/react-asset-loader</a></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/javascript/react/2015/05/17/react-asset-loader/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Sun, 17 May 2015 00:00:00 -0400</pubDate>
+                <author>Juan Cabrera</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Using ES6 modules in the browser</title>
-                <link>http://localhost:4000/javascript/node/es6/2014/11/16/using-es6-modules-in-the-browser/</link>
+                <link>http://localhost:4000/javascript/es6/2014/11/16/using-es6-modules-in-the-browser/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>There are a lot of information about Gulp, not so much for ES6 and just a very few articles about how to implement ES6 modules (for the browser) properly.</p>
@@ -52,7 +123,7 @@ Make sure you have installed Traceur globally:</p>
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/javascript/node/es6/2014/11/16/using-es6-modules-in-the-browser/</guid>
+                <guid isPermaLink="false">/javascript/es6/2014/11/16/using-es6-modules-in-the-browser/</guid>
                 <description>
                     
                 </description>

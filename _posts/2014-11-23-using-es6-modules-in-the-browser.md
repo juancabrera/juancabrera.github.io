@@ -2,7 +2,7 @@
 layout:     post
 title:      Using ES6 modules in the browser
 date:       2014-11-16
-categories: javascript node ES6
+categories: javascript ES6
 ---
 
 There are a lot of information about Gulp, not so much for ES6 and just a very few articles about how to implement ES6 modules (for the browser) properly.

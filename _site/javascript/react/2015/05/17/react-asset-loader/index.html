@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>React Asset Loader &#8211; Juan Cabrera - Front-end Developer</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Javascript Developer.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Juan Cabrera">
+    
+    <meta name="keywords" content="javascript, react">
+    <link rel="canonical" href="http://localhost:4000/javascript/react/2015/05/17/react-asset-loader/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Juan Cabrera - Front-end Developer" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201706141601" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="React Asset Loader">
+    <meta property="og:description" content="Javascript Developer.">
+    <meta property="og:url" content="http://localhost:4000/javascript/react/2015/05/17/react-asset-loader/">
+    <meta property="og:site_name" content="Juan Cabrera - Front-end Developer">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="React Asset Loader" />
+    <meta name="twitter:description" content="Javascript Developer." />
+    <meta name="twitter:url" content="http://localhost:4000/javascript/react/2015/05/17/react-asset-loader/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site animated fade-in-down">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">Juan Cabrera - Front-end Developer</a>
+      <nav class="site-nav">
+        
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>React Asset Loader</h1>
+  <span class="post-meta">May 17, 2015</span><br>
+  
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p><a href="https://github.com/juancabrera/react-asset-loader" target="_blank">This</a> is simple react component for loading assets. It allows you to load from a single asset to multiple assets without affecting the pageload speed. You can also add custom classes, attributes and callback functions.</p>
+
+<h2 id="concept">Concept</h2>
+<p>We all get scared of heavy websites, there are tons and tons of articles telling us why we shouldnt build websites using heavy assets like videos or gifs. But sometimes, you just need to, sometimes you just need to build a cool interactive experience with videos, or so something cool with gifs, or a long page with lots of high quality images, etc. This component is precisely for that.</p>
+
+<h2 id="how-it-works">How it works</h2>
+<p>This component allows you to load all the assets you want without affecting the pageload speed, this is because it will load the page and then it will start loading all the assets, it adds a <code class="highlighter-rouge">&lt;div className=loading&gt;&lt;/div&gt;</code> wrapper while its loading the asset so you can have a nice custom loader, when the assets are loaded it will replace the loading wrapper with the actual assets.</p>
+
+<h2 id="install">Install</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install react-asset-loader --save-dev</code></pre></figure>
+
+<p>Or just grab the component <code class="highlighter-rouge">LoadAsset.js</code> directly from the repo.</p>
+
+<h2 id="usage">Usage</h2>
+<p><strong>Load a single asset.</strong></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/asset.jpg"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<p><strong>Load multiple assets.</strong><br />
+When you need to load more than one asset for one experience. It will be loadad after all the assets passed are loaded.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video1.mp4"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video2.mp4"</span><span class="p">}]}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+<span class="c1">// or also </span>
+
+<span class="kd">var</span> <span class="nx">videos</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video1.mp4"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video2.mp4"</span><span class="p">}</span> <span class="p">]</span></code></pre></figure>
+
+<p><strong>Adding classes.</strong><br />
+You can add classes to each asset you pass to the component.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/asset.jpg"</span><span class="p">,</span> <span class="s2">"className"</span><span class="p">:</span><span class="s2">"class1 class2"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<p><strong>Adding attributes.</strong><br />
+You can also add attributes to each asset you pass to the component.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">,</span> <span class="s2">"attributes"</span><span class="p">:[{</span><span class="s2">"autoPlay"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"loop"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}]}]}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+<span class="c1">// or also </span>
+
+<span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="p">[{</span> <span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">,</span> <span class="s2">"attributes"</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span><span class="s2">"autoPlay"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"loop"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}</span> <span class="p">]</span> <span class="p">}]</span></code></pre></figure>
+
+<p><strong>Custom onLoad callback.</strong><br />
+You can have a custom callback for when your assets are loaded.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">LoadAssets</span> <span class="nx">onLoad</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onCoolVideoLoaded</span><span class="p">}</span> <span class="nx">assets</span><span class="o">=</span><span class="p">{[{</span><span class="s2">"uri"</span><span class="p">:</span><span class="s2">"/static/images/video.mp4"</span><span class="p">}]}</span> <span class="sr">/&gt;</span></code></pre></figure>
+
+<h2 id="links">Links</h2>
+<p><strong>Github</strong><br />
+<a href="https://github.com/juancabrera/react-asset-loader" target="_blank">https://github.com/juancabrera/react-asset-loader</a></p>
+
+<p><strong>NPM package</strong><br />
+<a href="https://www.npmjs.com/package/react-asset-loader" target="_blank">https://www.npmjs.com/package/react-asset-loader</a></p>
+
+</article>
+
+
+
+
+  <div class="py2 post-footer">
+  <img src="/images/me.jpeg" alt="John Otander" class="avatar" />
+  <p>I'm Juan Cabrera, a Chilean-born, New York-based Front-end Developer currently doing cool stuff at <a href="http://www.ustwo.com" target="_blank">ustwo</a>. Previously on <a href="http://www.ustwo.com" target="_blank">Gin Lane</a>.</p>
+  <p>
+    Follow me on <a href="https://twitter.com/cabrera_dev" target="_blank">Twitter</a>.
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 class="related-post-title">Related Posts</h3>
+  
+    <div class="post ml2">
+      <a href="/javascript/es6/2014/11/16/using-es6-modules-in-the-browser/" class="post-link">
+        <h4 class="post-title">Using ES6 modules in the browser</h4>
+        <p class="post-summary"></p>
+      </a>
+    </div>
+  
+    <div class="post ml2">
+      <a href="/javascript/node/es6/2014/11/16/my-front-end-codebase/" class="post-link">
+        <h4 class="post-title">My front-end codebase</h4>
+        <p class="post-summary"></p>
+      </a>
+    </div>
+  
+    <div class="post ml2">
+      <a href="/javascript/360/motion/2014/06/11/javascript-360/" class="post-link">
+        <h4 class="post-title">Javascript 360</h4>
+        <p class="post-summary"></p>
+      </a>
+    </div>
+  
+    <div class="post ml2">
+      <a href="/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/" class="post-link">
+        <h4 class="post-title">The spring effect in JavaScript</h4>
+        <p class="post-summary"></p>
+      </a>
+    </div>
+  
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>
