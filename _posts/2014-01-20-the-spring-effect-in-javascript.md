@@ -7,12 +7,11 @@ categories: javascript motion animation
 
 In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this [blog about Physics and JavaScript](http://burakkanber.com/){:target="_blank"}, specifically [to this article about car suspension](http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/){:target="_blank"} (Hooke’s Law). And I thought it may works great on scrolling.
 
-After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: [http://code.juan.me/demos/springy/basic/html/](http://code.juan.me/demos/springy/basic/html/). In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).
+After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: [http://code.juan.me/demos/springy/basic/html/](http://code.juan.me/demos/springy/basic/html/){:target="_blank"}. In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).
 
-Looking at the first attempt (and being an Android user) I realized there was something familiar with it, it took me a while to realize that it was exactly what the Messages App of iOS 7 does, so of course I couldnt resist to do this: [http://code.juan.me/demos/springy/messages/html/](http://code.juan.me/demos/springy/messages/html/). And now we can say that Apple is using car suspension physics in some of their Apps (?).
+Looking at the first attempt (and being an Android user) I realized there was something familiar with it, it took me a while to realize that it was exactly what the Messages App of iOS 7 does, so of course I couldnt resist to do this: [http://code.juan.me/demos/springy/messages/html/](http://code.juan.me/demos/springy/messages/html/){:target="_blank"}. And now we can say that Apple is using car suspension physics in some of their Apps (?).
 
-I also wanted to try this in a sort of more real use case, so I made two more demos using a grid prototype, this one with images: [http://code.juan.me/demos/springy/grid-prototype/html/](http://code.juan.me/demos/springy/grid-prototype/html/) and this one more clean in white: [http://code.juan.me/demos/springy/grid-prototype-2/html/](http://code.juan.me/demos/springy/grid-prototype-2/html/
-)
+I also wanted to try this in a sort of more real use case, so I made two more demos using a grid prototype, this one with images: [http://code.juan.me/demos/springy/grid-prototype/html/](http://code.juan.me/demos/springy/grid-prototype/html/){:target="_blank"} and this one more clean in white: [http://code.juan.me/demos/springy/grid-prototype-2/html/](http://code.juan.me/demos/springy/grid-prototype-2/html/){:target="_blank"}
 
 __The Code__
 
@@ -87,6 +86,6 @@ And finally, on `completeScrolling` we reset all our variables and stop the Requ
 
 __Update — Jan 27, 2014.__
 
-I put these demos in a [GitHub repo](https://github.com/juancabrera/demos) because some people wanted to contribute with a few improvements in performance :)
+I put these demos in a [GitHub repo](https://github.com/juancabrera/demos){:target="_blank"} because some people wanted to contribute with a few improvements in performance :)
 
-[https://github.com/juancabrera/demos](https://github.com/juancabrera/demos)
+[https://github.com/juancabrera/demos](https://github.com/juancabrera/demos){:target="_blank"}

@@ -7,6 +7,50 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Using ES6 modules in the browser</title>
+        <description>&lt;p&gt;There are a lot of information about Gulp, not so much for ES6 and just a very few articles about how to implement ES6 modules (for the browser) properly.&lt;/p&gt;
+
+&lt;p&gt;On my last project I was using Gulp + ES6 and I had to spent some time figuring out how to get ES6 modules working properly. This is how I finally did it without using Browserify or any AMD loader.&lt;/p&gt;
+
+&lt;p&gt;My first attempt was to use &lt;a href=&quot;https://www.npmjs.com/package/gulp-es6-transpiler&quot; target=&quot;_blank&quot;&gt;gulp-es6-transpiler&lt;/a&gt; (that basically is a wrapper for &lt;a href=&quot;https://www.npmjs.com/package/es6-transpiler&quot; target=&quot;_blank&quot;&gt;es6-transpiler&lt;/a&gt;) but it doesn’t support modules, then I took a look to &lt;a href=&quot;https://www.npmjs.org/package/gulp-es6-module-jstransform&quot;&gt;gulp-es6-module-jstransform&lt;/a&gt; but it only transpile to CommonJS, meaning that we’ll need to use Browserify, then I tried &lt;a href=&quot;https://github.com/google/traceur-compiler&quot; target=&quot;_blank&quot;&gt;Traceur&lt;/a&gt; (from Google) and it has two options for browser modules, one is ‘AMD (meaning that we’ll need to use RequireJS or similar) and ‘inline’ that basically what it does is generate one file with all the transpiled modules on it (which is the closet option to “native” ES6 modules).
+The thing is that the ‘inline’ option works perfect if you are using the command line, but if you use the Traceur’s node API (like &lt;a href=&quot;https://www.npmjs.org/package/gulp-traceur&quot; target=&quot;_blank&quot;&gt;gulp-traceur&lt;/a&gt;) it’ll throw an error.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[UPDATE]&lt;/strong&gt; &lt;a href=&quot;https://github.com/google/traceur-compiler/issues/1282&quot; target=&quot;_blank&quot;&gt;I’ve put this issue on their Github&lt;/a&gt; and finally got fixed, but then we realized that the transpile from the node API wasn’t generating the same output as the command line, so we finally decided to build a small Gulp plugin wrapper for the command line Traceur (Thanks Edward!)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/gulp-traceur-cmdline&quot; target=&quot;_blank&quot;&gt;Here is the plugin&lt;/a&gt; and this is how you can use it:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install&lt;/strong&gt;&lt;br /&gt;
+Make sure you have installed Traceur globally:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install traceur --global&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;gulp-traceur-cmdline&lt;/code&gt; to your project:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install gulp-traceur-cmdline --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gulpTraceurCmdline&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'gulp-traceur-cmdline'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'gulpTraceurCmdline'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;gulp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./source/styleguide/js/main.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gulpTraceurCmdline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/usr/local/bin/traceur'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;modules&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'inline'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./dist/styleguide/js/main.js'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;debug&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Github: &lt;a href=&quot;https://github.com/juancabrera/gulp-traceur-cmdline&quot; target=&quot;_blank&quot;&gt;https://github.com/juancabrera/gulp-traceur-cmdline&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;NPM: &lt;a href=&quot;https://github.com/juancabrera/gulp-traceur-cmdline&quot; target=&quot;_blank&quot;&gt;https://www.npmjs.org/package/gulp-traceur-cmdline&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Nov 2014 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/javascript/node/es6/2014/11/16/using-es6-modules-in-the-browser/</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/node/es6/2014/11/16/using-es6-modules-in-the-browser/</guid>
+      </item>
+    
+      <item>
         <title>My front-end codebase</title>
         <description>&lt;p&gt;After trying different front-end configurations in the past few months (Grunt or Gulp, HAML or Slim, ES6 modules or AMD modules, etc) I have finally found one that Im pretty comfortable with (at least for a while). This codebase is using:&lt;/p&gt;
 
@@ -25,8 +69,8 @@
 &lt;p&gt;You can find the codebase on my Github (feel free to contribute if you like it): &lt;a href=&quot;https://github.com/juancabrera/gulp-frontend-codebase.&quot;&gt;https://github.com/juancabrera/gulp-frontend-codebase&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 16 Nov 2014 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/javascript/node/motion/2014/11/16/my-front-end-codebase/</link>
-        <guid isPermaLink="true">http://localhost:4000/javascript/node/motion/2014/11/16/my-front-end-codebase/</guid>
+        <link>http://localhost:4000/javascript/node/es6/2014/11/16/my-front-end-codebase/</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/node/es6/2014/11/16/my-front-end-codebase/</guid>
       </item>
     
       <item>
@@ -57,11 +101,11 @@ GitHub Repo: &lt;a href=&quot;https://github.com/juancabrera/three60&quot; targe
         <title>The spring effect in JavaScript</title>
         <description>&lt;p&gt;In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this &lt;a href=&quot;http://burakkanber.com/&quot; target=&quot;_blank&quot;&gt;blog about Physics and JavaScript&lt;/a&gt;, specifically &lt;a href=&quot;http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/&quot; target=&quot;_blank&quot;&gt;to this article about car suspension&lt;/a&gt; (Hooke’s Law). And I thought it may works great on scrolling.&lt;/p&gt;
 
-&lt;p&gt;After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: &lt;a href=&quot;http://code.juan.me/demos/springy/basic/html/&quot;&gt;http://code.juan.me/demos/springy/basic/html/&lt;/a&gt;. In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).&lt;/p&gt;
+&lt;p&gt;After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: &lt;a href=&quot;http://code.juan.me/demos/springy/basic/html/&quot; target=&quot;_blank&quot;&gt;http://code.juan.me/demos/springy/basic/html/&lt;/a&gt;. In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).&lt;/p&gt;
 
-&lt;p&gt;Looking at the first attempt (and being an Android user) I realized there was something familiar with it, it took me a while to realize that it was exactly what the Messages App of iOS 7 does, so of course I couldnt resist to do this: &lt;a href=&quot;http://code.juan.me/demos/springy/messages/html/&quot;&gt;http://code.juan.me/demos/springy/messages/html/&lt;/a&gt;. And now we can say that Apple is using car suspension physics in some of their Apps (?).&lt;/p&gt;
+&lt;p&gt;Looking at the first attempt (and being an Android user) I realized there was something familiar with it, it took me a while to realize that it was exactly what the Messages App of iOS 7 does, so of course I couldnt resist to do this: &lt;a href=&quot;http://code.juan.me/demos/springy/messages/html/&quot; target=&quot;_blank&quot;&gt;http://code.juan.me/demos/springy/messages/html/&lt;/a&gt;. And now we can say that Apple is using car suspension physics in some of their Apps (?).&lt;/p&gt;
 
-&lt;p&gt;I also wanted to try this in a sort of more real use case, so I made two more demos using a grid prototype, this one with images: &lt;a href=&quot;http://code.juan.me/demos/springy/grid-prototype/html/&quot;&gt;http://code.juan.me/demos/springy/grid-prototype/html/&lt;/a&gt; and this one more clean in white: &lt;a href=&quot;http://code.juan.me/demos/springy/grid-prototype-2/html/&quot;&gt;http://code.juan.me/demos/springy/grid-prototype-2/html/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also wanted to try this in a sort of more real use case, so I made two more demos using a grid prototype, this one with images: &lt;a href=&quot;http://code.juan.me/demos/springy/grid-prototype/html/&quot; target=&quot;_blank&quot;&gt;http://code.juan.me/demos/springy/grid-prototype/html/&lt;/a&gt; and this one more clean in white: &lt;a href=&quot;http://code.juan.me/demos/springy/grid-prototype-2/html/&quot; target=&quot;_blank&quot;&gt;http://code.juan.me/demos/springy/grid-prototype-2/html/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Code&lt;/strong&gt;&lt;/p&gt;
 
@@ -128,9 +172,9 @@ GitHub Repo: &lt;a href=&quot;https://github.com/juancabrera/three60&quot; targe
 
 &lt;p&gt;&lt;strong&gt;Update — Jan 27, 2014.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I put these demos in a &lt;a href=&quot;https://github.com/juancabrera/demos&quot;&gt;GitHub repo&lt;/a&gt; because some people wanted to contribute with a few improvements in performance :)&lt;/p&gt;
+&lt;p&gt;I put these demos in a &lt;a href=&quot;https://github.com/juancabrera/demos&quot; target=&quot;_blank&quot;&gt;GitHub repo&lt;/a&gt; because some people wanted to contribute with a few improvements in performance :)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/juancabrera/demos&quot;&gt;https://github.com/juancabrera/demos&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/juancabrera/demos&quot; target=&quot;_blank&quot;&gt;https://github.com/juancabrera/demos&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Jan 2014 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/</link>

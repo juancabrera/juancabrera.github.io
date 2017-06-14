@@ -2,7 +2,7 @@
 layout:     post
 title:      My front-end codebase
 date:       2014-11-16
-categories: javascript node motion
+categories: javascript node ES6
 ---
 
 After trying different front-end configurations in the past few months (Grunt or Gulp, HAML or Slim, ES6 modules or AMD modules, etc) I have finally found one that Im pretty comfortable with (at least for a while). This codebase is using:
