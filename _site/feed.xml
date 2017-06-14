@@ -7,15 +7,38 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>My front-end codebase</title>
+        <description>&lt;p&gt;After trying different front-end configurations in the past few months (Grunt or Gulp, HAML or Slim, ES6 modules or AMD modules, etc) I have finally found one that Im pretty comfortable with (at least for a while). This codebase is using:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot;&gt;Gulp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://slim-lang.com/&quot; target=&quot;_blank&quot;&gt;Slim&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sass-lang.com/&quot; target=&quot;_blank&quot;&gt;SASS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/postcss/autoprefixer&quot; target=&quot;_blank&quot;&gt;Autoprefixer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/google/traceur-compiler&quot; target=&quot;_blank&quot;&gt;Traceur&lt;/a&gt;   for ES6 transpile. (wrapper for command line traceur)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Next steps&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Try and incorporate performance tools (like &lt;a href=&quot;https://github.com/ben-eb/gulp-uncss&quot; target=&quot;_blank&quot;&gt;uncss&lt;/a&gt;, &lt;a href=&quot;https://github.com/addyosmani/critical-path-css-demo&quot; target=&quot;_blank&quot;&gt;critical-path&lt;/a&gt;) and testing tools.&lt;/p&gt;
+
+&lt;p&gt;You can find the codebase on my Github (feel free to contribute if you like it): &lt;a href=&quot;https://github.com/juancabrera/gulp-frontend-codebase.&quot;&gt;https://github.com/juancabrera/gulp-frontend-codebase&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Nov 2014 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/javascript/node/motion/2014/11/16/my-front-end-codebase/</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/node/motion/2014/11/16/my-front-end-codebase/</guid>
+      </item>
+    
+      <item>
         <title>Javascript 360</title>
         <description>&lt;p&gt;Almost a year ago I wrote a small Javascript method that takes a bunch of images (frames) and make with them a spinnable 360 with inertia that works for both desktop and mobile. I also tweaked it a little bit so it could work with a Leap Motion.&lt;/p&gt;
 
 &lt;p&gt;I want to retake this little project in order to make some improvements, mostly in performance, tweaking the inertia and probably adding native support for the Leap Motion. If you want to help, you are more than welcome :)&lt;/p&gt;
 
-&lt;p&gt;Demo: &lt;a href=&quot;http://juancabrera.github.io/three60/&quot;&gt;http://juancabrera.github.io/three60/
+&lt;p&gt;Demo: &lt;a href=&quot;http://juancabrera.github.io/three60/&quot; target=&quot;_blank&quot;&gt;http://juancabrera.github.io/three60/
 &lt;/a&gt;&lt;br /&gt;
-Demo with LeapMotion: &lt;a href=&quot;http://instagram.com/p/fTSUreky5f/&quot;&gt;http://instagram.com/p/fTSUreky5f/&lt;/a&gt;&lt;br /&gt;
-GitHub Repo: &lt;a href=&quot;https://github.com/juancabrera/three60&quot;&gt;https://github.com/juancabrera/three60&lt;/a&gt;&lt;/p&gt;
+Demo with LeapMotion: &lt;a href=&quot;http://instagram.com/p/fTSUreky5f/&quot; target=&quot;_blank&quot;&gt;http://instagram.com/p/fTSUreky5f/&lt;/a&gt;&lt;br /&gt;
+GitHub Repo: &lt;a href=&quot;https://github.com/juancabrera/three60&quot; target=&quot;_blank&quot;&gt;https://github.com/juancabrera/three60&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;[Updated]&lt;/strong&gt; Nov 13, 2014.&lt;/p&gt;
 &lt;ul&gt;
@@ -25,14 +48,14 @@ GitHub Repo: &lt;a href=&quot;https://github.com/juancabrera/three60&quot;&gt;ht
   &lt;li&gt;Removed jQuery dependency&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 01 Jun 2015 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/javascript/360/motion/2015/06/01/javascript-360/</link>
-        <guid isPermaLink="true">http://localhost:4000/javascript/360/motion/2015/06/01/javascript-360/</guid>
+        <pubDate>Wed, 11 Jun 2014 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/javascript/360/motion/2014/06/11/javascript-360/</link>
+        <guid isPermaLink="true">http://localhost:4000/javascript/360/motion/2014/06/11/javascript-360/</guid>
       </item>
     
       <item>
         <title>The spring effect in JavaScript</title>
-        <description>&lt;p&gt;In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this &lt;a href=&quot;http://burakkanber.com/&quot;&gt;blog about Physics and JavaScript&lt;/a&gt;, specifically &lt;a href=&quot;http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/&quot;&gt;to this article about car suspension&lt;/a&gt; (Hooke’s Law). And I thought it may works great on scrolling.&lt;/p&gt;
+        <description>&lt;p&gt;In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this &lt;a href=&quot;http://burakkanber.com/&quot; target=&quot;_blank&quot;&gt;blog about Physics and JavaScript&lt;/a&gt;, specifically &lt;a href=&quot;http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/&quot; target=&quot;_blank&quot;&gt;to this article about car suspension&lt;/a&gt; (Hooke’s Law). And I thought it may works great on scrolling.&lt;/p&gt;
 
 &lt;p&gt;After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: &lt;a href=&quot;http://code.juan.me/demos/springy/basic/html/&quot;&gt;http://code.juan.me/demos/springy/basic/html/&lt;/a&gt;. In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).&lt;/p&gt;
 

@@ -5,7 +5,7 @@ date:       2014-01-20
 categories: javascript motion animation
 ---
 
-In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this [blog about Physics and JavaScript](http://burakkanber.com/), specifically [to this article about car suspension](http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/) (Hooke’s Law). And I thought it may works great on scrolling.
+In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this [blog about Physics and JavaScript](http://burakkanber.com/){:target="_blank"}, specifically [to this article about car suspension](http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/){:target="_blank"} (Hooke’s Law). And I thought it may works great on scrolling.
 
 After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: [http://code.juan.me/demos/springy/basic/html/](http://code.juan.me/demos/springy/basic/html/). In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).
 
