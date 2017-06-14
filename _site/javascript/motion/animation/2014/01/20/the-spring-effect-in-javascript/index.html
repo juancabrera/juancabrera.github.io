@@ -1,53 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title></title>
-    <link>http://localhost:4000</link>
-    <description>
-      Javascript Developer.
-    </description>
+<!DOCTYPE html>
+<html>
+<head>
     
-        
-            <item>
-                <title>Javascript 360</title>
-                <link>http://localhost:4000/javascript/360/motion/2015/06/01/javascript-360/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>Almost a year ago I wrote a small Javascript method that takes a bunch of images (frames) and make with them a spinnable 360 with inertia that works for both desktop and mobile. I also tweaked it a little bit so it could work with a Leap Motion.</p>
-
-<p>I want to retake this little project in order to make some improvements, mostly in performance, tweaking the inertia and probably adding native support for the Leap Motion. If you want to help, you are more than welcome :)</p>
-
-<p>Demo: <a href="http://juancabrera.github.io/three60/">http://juancabrera.github.io/three60/
-</a><br />
-Demo with LeapMotion: <a href="http://instagram.com/p/fTSUreky5f/">http://instagram.com/p/fTSUreky5f/</a><br />
-GitHub Repo: <a href="https://github.com/juancabrera/three60">https://github.com/juancabrera/three60</a></p>
-
-<p><strong>[Updated]</strong> Nov 13, 2014.</p>
-<ul>
-  <li>Fixed bugs with interaction</li>
-  <li>Added RequestAnimationFrame</li>
-  <li>Improved inertia</li>
-  <li>Removed jQuery dependency</li>
-</ul>
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/javascript/360/motion/2015/06/01/javascript-360/</guid>
-                <description>
-                    
-                </description>
-                <pubDate>Mon, 01 Jun 2015 00:00:00 -0400</pubDate>
-                <author>Juan Cabrera</author>
-            </item>
-        
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The spring effect in JavaScript &#8211; Juan Cabrera - Front-end Developer</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdn.mathjax.org">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Javascript Developer.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Juan Cabrera">
     
+    <meta name="keywords" content="javascript, motion, animation">
+    <link rel="canonical" href="http://localhost:4000/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Juan Cabrera - Front-end Developer" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201706140946" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The spring effect in JavaScript">
+    <meta property="og:description" content="Javascript Developer.">
+    <meta property="og:url" content="http://localhost:4000/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/">
+    <meta property="og:site_name" content="Juan Cabrera - Front-end Developer">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="The spring effect in JavaScript" />
+    <meta name="twitter:description" content="Javascript Developer." />
+    <meta name="twitter:url" content="http://localhost:4000/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site animated fade-in-down">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">Juan Cabrera - Front-end Developer</a>
+      <nav class="site-nav">
         
-            <item>
-                <title>The spring effect in JavaScript</title>
-                <link>http://localhost:4000/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this <a href="http://burakkanber.com/">blog about Physics and JavaScript</a>, specifically <a href="http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/">to this article about car suspension</a> (Hooke’s Law). And I thought it may works great on scrolling.</p>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>The spring effect in JavaScript</h1>
+  <span class="post-meta">Jan 20, 2014</span><br>
+  
+  <span class="post-meta small">
+  
+    3 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>In the last weeks I was trying to figure out a way to make things scroll nicer and that doesnt affect negatively the performance. When I start I didnt know exactly what was the result I wanted, so after a few frustrated attempts coding something by my self I start looking for some sort of custom easing functions, how they works, etc. This is how I got to this <a href="http://burakkanber.com/">blog about Physics and JavaScript</a>, specifically <a href="http://burakkanber.com/blog/physics-in-javascript-car-suspension-part-1-spring-mass-damper/">to this article about car suspension</a> (Hooke’s Law). And I thought it may works great on scrolling.</p>
 
 <p>After trying several times to use this on scrolling I finally made my first successful attempt, and it was pretty much what I had in mind: <a href="http://code.juan.me/demos/springy/basic/html/">http://code.juan.me/demos/springy/basic/html/</a>. In the demo you can see on the left, the green squares are being eased with the spring effect, the one on the right has no easing (so you can see the difference).</p>
 
@@ -124,16 +185,33 @@ GitHub Repo: <a href="https://github.com/juancabrera/three60">https://github.com
 
 <p><a href="https://github.com/juancabrera/demos">https://github.com/juancabrera/demos</a></p>
 
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/javascript/motion/animation/2014/01/20/the-spring-effect-in-javascript/</guid>
-                <description>
-                    
-                </description>
-                <pubDate>Mon, 20 Jan 2014 00:00:00 -0500</pubDate>
-                <author>Juan Cabrera</author>
-            </item>
-        
-    
-  </channel>
-</rss>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>
