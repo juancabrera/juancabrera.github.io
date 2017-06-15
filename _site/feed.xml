@@ -7,6 +7,24 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Up Again</title>
+        <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; Lost my blog. Didn’t have a blog for about a year. Recovered many of my posts using web.archive.org. Here we are again.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;—&lt;/p&gt;
+
+&lt;p&gt;Last year something really stupid happened, went for vacation and didn’t realize that had a few notifications to pay my Digital Ocean account so during vacation my account got deactivated and when they do so they &lt;strong&gt;delete all your droplets&lt;/strong&gt; so I lost everything, even my Ghost blog that I had running.&lt;/p&gt;
+
+&lt;p&gt;Since then I’ve been quite busy both on work and life stuff but finally got a bit of a downtime to get the blog up again. This time I’m not using ghost basically because I don’t need a CMS, I don’t write that much and my blog isn’t fancy at all. So this time I’m just using Github pages + Jekyll and works just fine.&lt;/p&gt;
+
+&lt;p&gt;Lukyly enough I could recover most of my posts using web.archive.org, but the ones I wrote on 2016 are gone so I will try to re-write them again anytime soon.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 15 Jun 2017 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/2017/06/15/up-again/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/15/up-again/</guid>
+      </item>
+    
+      <item>
         <title>React Asset Loader</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/juancabrera/react-asset-loader&quot; target=&quot;_blank&quot;&gt;This&lt;/a&gt; is simple react component for loading assets. It allows you to load from a single asset to multiple assets without affecting the pageload speed. You can also add custom classes, attributes and callback functions.&lt;/p&gt;
 
