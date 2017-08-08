@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      How to deploy a Node Lambda functiont
+title:      How to deploy a Node Lambda function
 date:       2016-11-17
 categories: javascript node aws serverless
 ---
