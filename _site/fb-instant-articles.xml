@@ -37,6 +37,82 @@
     
         
             <item>
+                <title>How to deploy a Node Lambda functiont</title>
+                <link>http://localhost:4000/javascript/node/aws/serverless/2016/11/17/how-to-deploy-a-lambda-function/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>When you are building a Lambda function locally you will find that you need to upload the code <em>pretty</em> often in order to test it. Doing this manually could be quite a pain and time consuming. Here, I will show the easiest way I found to deploy a Node Lambda function using <code class="highlighter-rouge">aws-sdk</code>.</p>
+
+<h3 id="1-create-a-deployjs-file-in-your-project">1. Create a <code class="highlighter-rouge">deploy.js</code> file in your project</h3>
+<p>Update the <code class="highlighter-rouge">region</code> and the function name:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// deploy.js</span>
+<span class="kr">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'aws-sdk'</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">)</span>
+
+<span class="nx">AWS</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="na">region</span><span class="p">:</span> <span class="s1">'us-east-1'</span><span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">lambda</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">Lambda</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">lambdaFunctionName</span> <span class="o">=</span> <span class="s1">'yourFunctionName'</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">"./fn.zip"</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">err</span>
+
+  <span class="nx">lambda</span><span class="p">.</span><span class="nx">updateFunctionCode</span><span class="p">({</span>
+    <span class="na">FunctionName</span><span class="p">:</span> <span class="nx">lambdaFunctionName</span><span class="p">,</span>
+    <span class="na">ZipFile</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
+    <span class="na">Publish</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span> <span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ERROR: '</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'uploaded!'</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<h3 id="2-add-a-deploy-script-to-your-packagejson">2. Add a <code class="highlighter-rouge">deploy</code> script to your <code class="highlighter-rouge">package.json</code></h3>
+<p>It should look something like this:</p>
+
+<pre><code class="language-Javascript">"scripts": {
+  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+  "deploy": "zip -r fn.zip index.js node_modules package.json; node deploy"
+}
+</code></pre>
+<p>If your Lambda Function need more files just add them to the <code class="highlighter-rouge">zip</code> command.</p>
+
+<p>You could also zip the files on the <code class="highlighter-rouge">deploy.js</code> file and then just run <code class="highlighter-rouge">node deploy</code> from the command line.</p>
+
+<h3 id="3-deploy">3. Deploy!</h3>
+<p>Then just run:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm run deploy
+</code></pre>
+</div>
+
+<h4 id="aws-keys">AWS keys</h4>
+<p>You probably got this, but make sure you have your AWS keys as environment variables. These should be on your <code class="highlighter-rouge">~/.bashrc</code> file and should look something like:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"YOURACCESSKEYID"</span>
+<span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"YOURSECRETACCESSKEY"</span>
+</code></pre>
+</div>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/javascript/node/aws/serverless/2016/11/17/how-to-deploy-a-lambda-function/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Thu, 17 Nov 2016 00:00:00 -0500</pubDate>
+                <author>Juan Cabrera</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>React Asset Loader</title>
                 <link>http://localhost:4000/javascript/react/2015/05/17/react-asset-loader/</link>
                 <content:encoded>
